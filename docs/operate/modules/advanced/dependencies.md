@@ -263,14 +263,6 @@ func NewMyCamera(ctx context.Context, deps resource.Dependencies,
 }
 ```
 
-{{% alert title="Need to maintain state when reconfiguring?" color="note" %}}
-
-Most Go modules use `resource.AlwaysRebuild` within the `<module-name><resource-name>` struct, which rebuilds the resource every time the module is reconfigured.
-
-If you need to maintain the state of your resource, see [(Optional) Set up model configuration options](/operate/modules/write-a-driver-module/#6-handle-reconfiguration-optional).
-
-{{% /alert %}}
-
 {{% /tab %}}
 {{< /tabs >}}
 

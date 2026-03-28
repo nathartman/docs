@@ -44,6 +44,16 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="changed" title="Reconfigure removed from Go SDK Resource interface" date="2026-03-02" %}}
+
+`Reconfigure` has been removed from the Go SDK's `Resource` interface. `viam-server` now rebuilds resources by closing and recreating them when configuration changes, rather than calling `Reconfigure`. Initialize resources fully in the constructor instead of implementing a `Reconfigure` method.
+
+`TriviallyReconfigurable` and `AlwaysRebuild` are still available but no longer have `Reconfigure` methods. `AlwaysRebuild` is now a no-op marker.
+
+This change does not affect Python SDK modules, which continue to use `reconfigure` as before.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.

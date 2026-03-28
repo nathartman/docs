@@ -517,33 +517,22 @@ func newBase(ctx context.Context, deps resource.Dependencies, conf resource.Conf
         Named:  conf.ResourceName().AsNamed(),
         logger: logger,
     }
-    if err := b.Reconfigure(ctx, deps, conf); err != nil {
-        return nil, err
-    }
-    return b, nil
-}
-
-
-// Reconfigure reconfigures with new settings.
-func (b *myBase) Reconfigure(ctx context.Context, deps resource.Dependencies, conf resource.Config) error {
-    b.left = nil
-    b.right = nil
 
     // This takes the generic resource.Config passed down from the parent and converts it to the
     // model-specific (aka "native") Config structure defined, above making it easier to directly access attributes.
     baseConfig, err := resource.NativeConfig[*Config](conf)
     if err != nil {
-        return err
+        return nil, err
     }
 
     b.left, err = motor.FromDependencies(deps, baseConfig.LeftMotor)
     if err != nil {
-        return errors.Wrapf(err, "unable to get motor %v for mybase", baseConfig.LeftMotor)
+        return nil, errors.Wrapf(err, "unable to get motor %v for mybase", baseConfig.LeftMotor)
     }
 
     b.right, err = motor.FromDependencies(deps, baseConfig.RightMotor)
     if err != nil {
-        return errors.Wrapf(err, "unable to get motor %v for mybase", baseConfig.RightMotor)
+        return nil, errors.Wrapf(err, "unable to get motor %v for mybase", baseConfig.RightMotor)
     }
 
     geometries, err := kinematicbase.CollisionGeometry(conf.Frame)
@@ -552,8 +541,7 @@ func (b *myBase) Reconfigure(ctx context.Context, deps resource.Dependencies, co
     }
     b.geometries = geometries
 
-    // Stop motors when reconfiguring.
-    return multierr.Combine(b.left.Stop(context.Background(), nil), b.right.Stop(context.Background(), nil))
+    return b, nil
 }
 
 // DoCommand simply echos whatever was sent.
