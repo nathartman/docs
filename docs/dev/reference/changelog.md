@@ -44,6 +44,12 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="changed" title="Training job runtime display fix" date="2026-03-05" %}}
+
+The runtime displayed for training jobs on the **TRAINING** page now remains accurate when you change the sort order. Previously, changing the sort order could cause the elapsed time to display incorrectly.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
