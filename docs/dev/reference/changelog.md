@@ -44,6 +44,12 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="improved" title="Multi-arm motion planning avoids unnecessary movement" date="2026-02-25" %}}
+
+When planning motion for one arm in a multi-arm configuration, other arms now stay stationary unless they need to move to avoid a collision.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
