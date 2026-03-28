@@ -44,6 +44,12 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="changed" title="Remote frame system lookup fix" date="2026-02-23" %}}
+
+The frame system now correctly looks up remote components when calling `CurrentInputs()`, `GetPose()`, and `TransformPose()`. Previously, remote components with degrees of freedom (such as arms) would fail to be found in the frame system.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
