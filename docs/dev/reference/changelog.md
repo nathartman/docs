@@ -44,6 +44,12 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="improved" title="Module build start shows logs command" date="2026-02-28" %}}
+
+`viam module build start` now displays `viam module build logs --id <build_id>` after starting a cloud build, so you can follow the build progress.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
