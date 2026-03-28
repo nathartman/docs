@@ -41,6 +41,15 @@ You can use different types of detectors, both based on heuristics and machine l
 The returned detections consist of the bounding box around the identified object, as well as its label and confidence score:
 
 - `x_min`, `y_min`, `x_max`, `y_max` (int): specify the bounding box around the object using a rectangular area specified by two points: the top left point (`(x_min, y_min)`) and the bottom right point (`(x_max, y_max)`). The origin (0, 0) occupies the top left pixel of the image; X values increase as you move right, Y values increase as you move down.
+  Bounding box coordinates are in pixels, not normalized values between 0 and 1.
+  To calculate the detected object's area as a fraction of the total frame:
+
+  ```
+  area_fraction = (detection_width * detection_height) / (frame_width * frame_height)
+  ```
+
+  Where `detection_width = x_max - x_min` and `detection_height = y_max - y_min`.
+
 - `class_name` (string): specifies the label of the found object.
 - `confidence` (float): specifies the confidence of the assigned label.
   Between `0.0` and `1.0`, inclusive.
