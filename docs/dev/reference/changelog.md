@@ -44,6 +44,13 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="added" title="Confidence scores in dataset export" date="2026-03-02" %}}
+
+The `dataset.jsonl` file exported with `viam dataset export --include-jsonl=true` now includes a `confidence` field in bounding box and classification annotations.
+This field reflects the model's certainty for annotations created using auto-predictions or ML inference.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
