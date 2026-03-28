@@ -44,6 +44,13 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="improved" title="Multi-arm motion planning minRatio computation fix" date="2026-02-26" %}}
+
+Multi-arm motion planning now correctly excludes non-moving arm joints when computing `minRatio`.
+Previously, non-moving arm joints were incorrectly included in the calculation.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
