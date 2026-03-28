@@ -165,6 +165,7 @@ Your machine credentials file must be at <file>\etc\viam.json</file>.
     "system_configuration": {
       "logging_journald_system_max_use_megabytes": 128,
       "logging_journald_runtime_max_use_megabytes": 96,
+      "logging_journald_storage": "persistent",
       "os_auto_upgrade_type": "all",
       "forward_system_logs": "all,-gdm,-tailscaled"
     }
@@ -330,6 +331,7 @@ If the highest-priority network is not available (or, if `turn_on_hotspot_if_wif
 | ---------- | ---- | --------- | ----------- |
 | `forward_system_logs` | string | Optional | Enable forwarding of system logs (journald) to the cloud. A comma-separated list of SYSLOG_IDENTIFIERs to include, optionally prefixed with "-" to exclude. "all" is a special keyword to log everything. Examples: `"kernel,tailscaled,NetworkManager"` or `"all,-gdm,-tailscaled"`. Default: `""` (disabled). |
 | `logging_journald_runtime_max_use_megabytes` | integer | Optional |Set the temporary space limit for logs. `-1` to disable. Default: `512` (512 MB). |
+| `logging_journald_storage` | string | Optional | Sets the journald log storage mode. Options: `"persistent"` (logs stored on disk in `/var/log/journal/`, survive reboots), `"volatile"` (logs stored in memory at `/run/log/journal/`, lost on reboot), `"auto"` (storage mode depends on whether `/var/log/journal/` exists), `"none"` (disables journald log storage). Default: `"persistent"`. |
 | `logging_journald_system_max_use_megabytes` | integer | Optional | Sets the maximum disk space `journald` will use for persistent log storage. `-1` to disable. Default: `512` (512 MB). |
 | `os_auto_upgrade_type` | string | Optional | Manage OS package updates using Viam by setting this field. Installs the `unattended-upgrades` package, and replace `20auto-upgrades` and `50unattended-upgrades` in <FILE>/etc/apt/apt.conf.d/</FILE>, with an automatically generated Origins-Pattern list that is generated based on that of `50unattended-upgrades`. Custom repos installed on the system at the time the setting is enabled will be included. Options: `"all"` (automatic upgrades are performed for all packages), `"security"` (automatic upgrades for only packages containing `"security"` in their codename (for example `bookworm-security`)), `"disable"` (disable automatic upgrades), `""` (do not change system settings). Default: `""`. |
 

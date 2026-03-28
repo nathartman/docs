@@ -163,6 +163,29 @@ The configured values will take precedence over operating system defaults.
 }
 ```
 
+### Set the log storage mode
+
+By default, `viam-agent` configures journald to persist logs across reboots.
+This overrides the default volatile storage on some systems, like Raspberry Pi running Trixie.
+
+To change the log storage mode, add the `logging_journald_storage` field to the `system_configuration` object.
+You may need to add the `system_configuration` object to the `agent` object if it doesn't already exist.
+
+Valid options are:
+
+- `"persistent"`: Logs are stored on disk in `/var/log/journal/` and survive reboots (default)
+- `"volatile"`: Logs are stored in memory at `/run/log/journal/` and lost on reboot
+- `"auto"`: Storage mode depends on whether `/var/log/journal/` exists
+- `"none"`: Disables journald log storage entirely
+
+```json
+"agent": {
+    "system_configuration": {
+        "logging_journald_storage": "persistent"
+    }
+}
+```
+
 ### Forward system logs to the cloud
 
 You can configure `viam-agent` to forward system logs from journald to the cloud for additional diagnostics information.

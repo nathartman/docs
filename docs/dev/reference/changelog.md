@@ -44,6 +44,18 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="added" title="Configurable journald log storage mode" date="2026-03-02" %}}
+
+`viam-agent` now persists journald logs across reboots by default.
+This overrides the default volatile storage on some systems, like Raspberry Pi running Trixie.
+
+You can configure the storage mode using the `logging_journald_storage` field in your machine's `system_configuration`.
+Options are `"persistent"` (default), `"volatile"`, `"auto"`, and `"none"`.
+
+For more information, see [Set the log storage mode](/manage/fleet/system-settings/#set-the-log-storage-mode).
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
