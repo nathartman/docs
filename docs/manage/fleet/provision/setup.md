@@ -330,9 +330,9 @@ if __name__ == '__main__':
 {{< tabs >}}
 {{% tab name="Raspberry Pi" %}}
 
-If you are flashing a Raspberry Pi using the Raspberry Pi Imager, flash a 64-bit image to your SD card and **customize at least the hostname** when prompted by the Raspberry Pi Imager.
+If you are flashing a Raspberry Pi using the Raspberry Pi Imager, flash a 64-bit image to your SD card and **customize at least the hostname** when prompted.
 
-When you customize the hostname or other settings, the Raspberry Pi Imager creates `firstrun.sh` which is required to set up provisioning.
+When you customize the hostname or other settings, the Raspberry Pi Imager creates `firstrun.sh` (Bookworm and earlier) or `user-data` for cloud-init (Trixie and newer). The `preinstall.sh` script uses this file to set up provisioning.
 
 {{% /tab %}}
 {{% tab name="Other" %}}
@@ -344,8 +344,8 @@ See [`viam-server` Platform requirements](/operate/install/setup/#prerequisite-i
 
 {{< alert title="Support Notice" color="note" >}}
 
-Provisioning is supported and tested on Ubuntu 22.04, Debian 11 (Bullseye), and 12 (Bookworm) but should work on most distros using NetworkManager v1.30 (or newer) as well.
-For Bullseye, the installation of `viam-agent` changes the network configuration to use NetworkManager.
+Provisioning is supported on Ubuntu 22.04, Debian 11 (Bullseye), 12 (Bookworm), and 13 (Trixie), and most distros using NetworkManager v1.30 or newer.
+On Bullseye, installing `viam-agent` changes the network configuration to use NetworkManager.
 
 {{< /alert >}}
 
@@ -420,17 +420,19 @@ You **must customize at least the hostname** when prompted by the Raspberry Pi I
 
 {{< imgproc alt="Raspberry Pi Imager window showing gear-shaped settings icon is selected." src="/installation/rpi-setup/advanced-options-yes.png" resize="800x" declaredimensions=true class="shadow" >}}
 
-When you customize the hostname or other settings, the Raspberry Pi Imager creates `firstrun.sh` which is required to set up provisioning.
+When you customize the hostname or other settings, the Raspberry Pi Imager creates a configuration file (`firstrun.sh` on Bookworm and earlier, or `user-data` on Trixie and newer) that `preinstall.sh` uses to set up provisioning.
 
-If you do not customize anything, `firstrun.sh` is not present on the device and the `preinstall.sh` script fails.
+If you skip customization, this file won't exist and `preinstall.sh` will fail.
 
 {{< /alert >}}
 
-For Raspberry Pis, the script will automatically perform the required next steps, it will:
+For Raspberry Pis, the script automatically:
 
-- create a tarball
-- update `firstrun.sh`.
-- extract the tarball to the mounted root filesystem
+- Creates a tarball
+- Updates `firstrun.sh` or cloud-init's `user-data` (depending on your OS version)
+- Extracts the tarball to the mounted root filesystem
+
+The following example shows output for Bookworm and earlier (on Trixie and newer, the message references `cloud-init's user-data` instead of `firstrun.sh`):
 
 ```sh {class="command-line" data-prompt="$" data-output="2-40"}
 sudo ./preinstall.sh
