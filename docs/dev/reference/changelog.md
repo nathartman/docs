@@ -44,6 +44,13 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="improved" title="Version strings accept optional v prefix" date="2026-03-05" %}}
+
+Version strings in `version_control` settings for `viam-agent` and `viam-server` now accept an optional `v` prefix.
+Both `"0.25.0"` and `"v0.25.0"` are valid.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
