@@ -44,6 +44,12 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="changed" title="Fragment version pinning fix" date="2026-02-23" %}}
+
+The **Pin to version** dropdown on the **CONFIGURE** tab now correctly preserves your fragment version selection instead of reverting to **Latest**.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
