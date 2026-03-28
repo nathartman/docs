@@ -44,6 +44,12 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="changed" title="Motion planning handles child frames during initial collision" date="2026-03-02" %}}
+
+Motion planning now correctly handles child frames (such as tool attachments) when an arm starts in collision with an obstacle. All descendant frames of a colliding arm part can now pass through the same obstacle, allowing arms to move out of an initial collision without errors.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
