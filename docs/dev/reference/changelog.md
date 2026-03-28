@@ -44,6 +44,12 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="changed" title="Modules sorted alphabetically in sidebar" date="2026-02-25" %}}
+
+Modules in the sidebar on the **CONFIGURE** tab are now sorted alphabetically by name, making it easier to find specific modules when you have many configured.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
