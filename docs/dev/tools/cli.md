@@ -999,6 +999,11 @@ viam module local-app-testing --app-url http://localhost:3000
 If you are writing your module using Python, you must have Python version 3.11 or newer installed on your computer for the `viam module generate` command to work.
 {{% /alert %}}
 
+`viam module generate` works on Windows.
+Go modules have full support, including cloud builds.
+Python modules can be generated and built locally, but cloud build is not supported.
+To build Python modules, use `viam module build local`, then `viam module upload` to publish them to the registry.
+
 {{% hiddencontent %}}
 
 The `viam module generate` command can generate code for the following resource types:

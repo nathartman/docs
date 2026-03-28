@@ -44,6 +44,14 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="added" title="Windows support for module generation" date="2026-02-27" %}}
+
+`viam module generate` now works on Windows.
+Go modules support both local and cloud builds.
+Python modules support local builds only—to publish a Python module from Windows, run `viam module build local` followed by `viam module upload`.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
