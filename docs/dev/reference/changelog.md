@@ -44,6 +44,14 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="improved" title="CLI update command works on Windows" date="2026-03-12" %}}
+
+The `viam update` command now works on Windows.
+The CLI automatically adds its directory to your user PATH so you can run `viam` from any terminal.
+Restart your terminal after updating for the PATH change to take effect.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.

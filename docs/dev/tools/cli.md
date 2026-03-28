@@ -101,7 +101,10 @@ echo 'export PATH="$HOME/go/bin:$PATH"' >> ~/.bashrc
 {{< /tabs >}}
 
 To later update the Viam CLI tool on Linux, use the steps above to reinstall the latest version.
-to later update the Viam CLI tool on macOS, run `brew upgrade viam`.
+To later update the Viam CLI tool on macOS, run `brew upgrade viam`.
+To later update the Viam CLI tool on Windows, run `viam update`.
+The CLI automatically adds its directory to your user PATH.
+Restart your terminal after updating for the PATH change to take effect.
 
 ## Authenticate
 
