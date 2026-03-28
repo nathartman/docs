@@ -16,8 +16,9 @@ You can use Viam to bill your customers using your own logo.
 This guide will show you how to set up white-labeled billing.
 Once set up:
 
-- You will have a branded billing dashboard for each org
-- Invoices will be sent from your provided support email address and will contain your provided logo
+- You get a branded billing dashboard for each org
+- Invoices use your support email and display your logo
+- Invitation emails display your logo
 - You can set custom pricing
 
 {{<imgproc src="/operate/wlbilling.png" resize="1000x" declaredimensions=true alt="Example billing dashboard" style="width:600px" class="imgzoom shadow">}}
