@@ -44,6 +44,12 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="added" title="Include labels.txt with TensorFlow SavedModel uploads" date="2026-03-05" %}}
+
+You can now include a `labels.txt` file when uploading a TensorFlow SavedModel to the [**MODELS** tab](https://app.viam.com/models) to provide label information for your model.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
