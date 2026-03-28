@@ -149,11 +149,28 @@ if err != nil {
 
 ## Use DoCommand in the web UI
 
-You can use `DoCommand` in the web UI:
+You can use `DoCommand` from the **CONFIGURE** tab or the **CONTROL** tab:
+
+### From the CONFIGURE tab
+
+1. Navigate to your machine's **CONFIGURE** tab.
+1. Find your component or service card and expand **do command**.
+   This section is collapsed by default and requires a live machine connection.
+1. Enter your command as JSON, for example
+
+   ```json {class="line-numbers linkable-line-numbers"}
+   {
+     "action": { "clean_area": "kitchen" }
+   }
+   ```
+
+1. Click **Execute**.
+
+### From the CONTROL tab
 
 1. Navigate to your machine's **CONTROL** tab.
-1. Find your resource and expand the **DO COMMAND** section.
-1. Enter a key and value in the text box using JSON syntax, for example
+1. Find your resource and expand **DO COMMAND**.
+1. Enter your command as JSON, for example
 
    ```json {class="line-numbers linkable-line-numbers"}
    {

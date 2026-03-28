@@ -44,6 +44,13 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="added" title="DoCommand section on CONFIGURE tab" date="2026-02-25" %}}
+
+You can now send custom commands to components and services directly from the **CONFIGURE** tab using the new **do command** section on configuration cards.
+This section is collapsed by default and requires a live machine connection.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
