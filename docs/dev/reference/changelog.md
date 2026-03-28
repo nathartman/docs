@@ -44,6 +44,14 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="changed" title="More accurate collision distances for motion planning" date="2026-02-23" %}}
+
+Motion planning collision detection for box and capsule geometries now returns more accurate separation distances and is faster. Previously, box-box and box-capsule distance calculations could underestimate the true separation distance between objects.
+
+This improvement is automatic.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
