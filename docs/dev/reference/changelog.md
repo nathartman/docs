@@ -44,6 +44,13 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="changed" title="Sub-part authentication uses API keys" date="2026-03-05" %}}
+
+Sub-parts now authenticate using API key credentials instead of mTLS certificates.
+This change is automatic and requires no configuration updates.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
