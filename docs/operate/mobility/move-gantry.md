@@ -40,9 +40,7 @@ Repeat this for each motor of your gantry.
 {{% tablestep %}}
 **Configure a gantry component**
 
-Use the **+** button again to add gantry components.
-
-If you have a multi-axis gantry, [configure a single-axis gantry](/operate/reference/components/gantry/single-axis/) for each axis, and then [configure a multi-axis gantry](/operate/reference/components/gantry/multi-axis/) to combine them all into one coordinated unit.
+Use the **+** button again to add a [gantry component](/operate/reference/components/gantry/).
 
 {{% /tablestep %}}
 {{% tablestep %}}

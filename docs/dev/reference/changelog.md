@@ -44,6 +44,14 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="removed" title="Built-in single-axis and multi-axis gantry models" date="2026-03-23" %}}
+
+The built-in `single-axis` and `multi-axis` gantry models have been removed from `viam-server`.
+These models are now available as a [module from the Viam registry](https://app.viam.com/registry?type=Module&searchTerm=gantry).
+The [gantry API](/dev/reference/apis/components/gantry/) is unchanged.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
