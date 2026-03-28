@@ -44,6 +44,12 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="changed" title="Components without kinematics file no longer error during protobuf round-trips" date="2026-02-25" %}}
+
+Components without a kinematics file no longer cause errors during protobuf round-trips. Previously, `KinematicModelFromProtobuf` returned an error when the kinematics format was unspecified with empty data. It now returns an empty model, which also maintains backward compatibility with older modules that return `GetKinematics` without a format set.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
