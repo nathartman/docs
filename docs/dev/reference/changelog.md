@@ -44,6 +44,12 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="added" title="Add resources directly to folders" date="2026-02-25" %}}
+
+Folders in the machine builder sidebar now include a **+** button for adding resources directly to that folder. Click it to add a component, service, job, trigger, remote, or local module—resources added this way are automatically assigned to the folder. Resources created using the main part-level **+** button are not assigned to any folder.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
