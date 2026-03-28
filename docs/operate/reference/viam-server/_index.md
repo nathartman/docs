@@ -277,7 +277,6 @@ Enabling debug level logs will take precedence over all logging configuration se
 | `-no-tls` | Starts an insecure HTTP server without TLS certificates even if one exists. |
 | `-output-telemetry` | Print out telemetry data (metrics and spans). |
 | `-reveal-sensitive-config-diffs` | Show config diffs. |
-| `-shareddir <directory-name>` | The location of the static web assets. |
 | `-untrusted-env` | Disable processes and shell from running in an untrusted environment. |
 | `-version` | Print version. |
 | `-webprofile` | Include profiler in HTTP server. |

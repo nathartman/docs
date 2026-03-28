@@ -44,6 +44,13 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="removed" title="Removed -shareddir command-line option" date="2026-03-06" %}}
+
+The `-shareddir` command-line option has been removed from `viam-server`.
+This option was unused and had no effect.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
