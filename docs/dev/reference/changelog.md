@@ -44,6 +44,14 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="changed" title="Drag sidebar items from anywhere on the row" date="2026-03-02" %}}
+
+Resource items in the sidebar on the **CONFIGURE** tab are now draggable from anywhere on the row.
+Previously, you had to click and drag a small icon that appeared on hover.
+This makes it easier to discover and use drag-to-reorder for organizing resources and folders.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
