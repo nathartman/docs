@@ -44,6 +44,12 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="changed" title="TabularDataCaptureUpload now returns file IDs correctly" date="2026-03-19" %}}
+
+[`TabularDataCaptureUpload`](/dev/reference/apis/data-client/#tabulardatacaptureupload) now returns the correct file IDs. Previously, the response could return empty strings instead of the actual file IDs.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
