@@ -1112,6 +1112,8 @@ viam module local-app-testing --app-url http://localhost:3000
 | `local-app-testing` | Test your viam application locally. This will stand up a local proxy at `http://localhost:8012` to simulate the Viam application server. | - |
 | `--help` | Return help. | - |
 
+The `reload` and `reload-local` commands respect `.gitignore` files when creating the module tarball, excluding any matching files and directories throughout your module directory tree. This is useful for modules with nested projects, such as frontends with `node_modules` directories.
+
 ##### Named arguments
 
 <!-- prettier-ignore -->
