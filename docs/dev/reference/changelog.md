@@ -44,6 +44,12 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="added" title="Bulk enable and disable resources" date="2026-03-06" %}}
+
+You can now right-click folders and parts on the **CONFIGURE** tab to **Enable all resources** or **Disable all resources** at once. Resources imported from fragments are not affected.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
