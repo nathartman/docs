@@ -44,6 +44,12 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="changed" title="Accept invite lands in correct organization" date="2026-02-23" %}}
+
+Accepting an organization invite now lands you directly in that organization. Previously, you could land in a different organization if you had recently viewed another one.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
