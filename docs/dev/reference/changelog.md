@@ -44,6 +44,12 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="changed" title="Time-series aggregation lines fix" date="2026-03-05" %}}
+
+Time-series widgets on the **TELEOP** page now correctly display lines that use aggregation window methods (Average, Count, Minimum, Maximum, Sum, or Custom query). Previously, only lines with the **None** window method appeared on the graph.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
