@@ -44,6 +44,15 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="added" title="MOTION tab for frame system" date="2026-03-01" %}}
+
+The **MOTION** tab on your machine's page displays your frame system configuration and lets you move frames to new poses.
+Click **Edit** on any frame to set new position and orientation values.
+
+See [View and move frames](/operate/reference/services/frame-system/#view-and-move-frames) for more information.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.

@@ -207,6 +207,20 @@ The frame system uses the supplemental transform to determine where the arm shou
 - Functions of some services and components also take in a `WorldState` parameter, which includes a `transforms` property.
 - [`TransformPose`](/dev/reference/apis/robot/#transformpose) has the option to take in these additional transforms.
 
+## View and move frames
+
+The **MOTION** tab on your machine's page displays your frame system configuration and lets you move frames to new poses.
+
+The tab shows a table of all frames with each frame's pose in the world reference frame.
+Each row displays a frame's name, position (x, y, z in millimeters), and orientation (oX, oY, oZ, theta in degrees).
+
+1. Navigate to your machine's page in Viam.
+1. Make sure your machine is live and connected.
+1. Select the **MOTION** tab.
+1. If you have multiple motion services configured, select one from the **Motion service** dropdown.
+1. Click **Edit** next to the frame you want to move.
+1. Enter new position and orientation values in the world reference frame, then click **Move**.
+
 ### Visualize components and frames
 
 {{< readfile "/static/include/snippet/visualize.md" >}}
