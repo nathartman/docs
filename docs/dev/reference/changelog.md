@@ -44,6 +44,13 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="improved" title="Motion planning fix for offset-mounted arms" date="2026-02-26" %}}
+
+Motion planning now correctly handles arms mounted with an offset from the world origin.
+Previously, arms mounted far from the world origin could fail with "too far" errors when planning motion.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
