@@ -44,6 +44,15 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="added" title="Arbitrary MIME types for file uploads" date="2026-02-23" %}}
+
+You can now specify any valid MIME type when uploading binary data or files using the [data client API](/dev/reference/apis/data-client/).
+Previously, uploads were limited to specific types like `image/jpeg`, `image/png`, `pointcloud/pcd`, and `video/mp4`.
+MIME types must follow the standard `type/subtype` format.
+If you don't specify a MIME type, it's inferred from the file extension.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
