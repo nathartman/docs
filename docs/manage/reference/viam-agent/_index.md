@@ -22,7 +22,11 @@ Among other things, `viam-agent`:
 - Provides various operating system settings.
 
 {{< alert title="Support notice" color="note" >}}
-Currently, `viam-agent` is only supported on Linux for amd64 (x86_64) and arm64 (aarch64) CPUs, MacOS for arm64 (M/silicon) CPUs, and Windows (native).
+Currently, `viam-agent` is supported on:
+
+- Linux (amd64/x86_64 and arm64/aarch64)
+- macOS (arm64 only, M-series Macs)
+- Windows (native)
 {{< /alert >}}
 
 To provision machines using `viam-agent`, see [Provision Machines](/manage/fleet/provision/setup/).
@@ -76,6 +80,38 @@ You can get the machine cloud credentials by clicking the copy icon next to **Ma
 
 On Linux, `viam-agent` will install itself as a systemd service named `viam-agent`. On MacOS, `viam-agent` will install itself as a launchd daemon named `system/com.viam.agent`.
 
+For information on managing the service, see [Manage `viam-agent`](/manage/reference/viam-agent/manage-viam-agent/).
+
+{{% /tab %}}
+{{% tab name="macOS" %}}
+
+You can use `viam-agent` either with
+
+{{< tabs >}}
+{{% tab name="environment variables" %}}
+
+The command will be of the following form:
+
+```sh {class="command-line" data-prompt="$" data-output=""}
+sudo /bin/sh -c "VIAM_API_KEY_ID=<KEYID> VIAM_API_KEY=<KEY> VIAM_PART_ID=<PARTID>; $(curl -fsSL https://storage.googleapis.com/packages.viam.com/apps/viam-agent/install.sh)"
+```
+
+{{% /tab %}}
+{{% tab name="a machine credentials file" %}}
+
+```sh {class="command-line" data-prompt="$"}
+sudo /bin/sh -c "$(curl -fsSL https://storage.googleapis.com/packages.viam.com/apps/viam-agent/install.sh)"
+```
+
+The machine credentials file must be at <file>/etc/viam.json</file>.
+You can get the machine cloud credentials by clicking the copy icon next to **Machine cloud credentials** in the part status dropdown to the right of your machine's name on the top of the page.
+
+{{<imgproc src="configure/machine-part-info.png" resize="500x" declaredimensions=true alt="Machine part info dropdown" class="shadow">}}
+
+{{% /tab %}}
+{{< /tabs >}}
+
+On macOS, `viam-agent` will install itself as a launchd service named `com.viam.agent`.
 For information on managing the service, see [Manage `viam-agent`](/manage/reference/viam-agent/manage-viam-agent/).
 
 {{% /tab %}}
@@ -361,10 +397,16 @@ sudo journalctl --unit=viam-agent
 ```
 
 {{% /tab %}}
-{{% tab name="Command line on MacOS" %}}
+{{% tab name="Command line on macOS" %}}
 
 ```sh {class="command-line" data-prompt="$"}
-less /var/log/viam-agent.log
+cat /var/log/viam-agent.log
+```
+
+To follow the logs in real-time:
+
+```sh {class="command-line" data-prompt="$"}
+tail -f /var/log/viam-agent.log
 ```
 
 {{% /tab %}}
@@ -389,4 +431,5 @@ You will find the `viam-agent` logs under **Windows Logs > Application** on the 
 | `-d`, `--debug` | Enable debug logging (on agent only). Can also be set with environment variable `VIAM_AGENT_DEBUG`. |
 | `-w`, `--wait` | Update versions before starting. Can also be set with environment variable `VIAM_AGENT_WAIT_FOR_UPDATE`. |
 | `-h`, `--help` | Show help message. |
-| `--install` | Install systemd/launchd service. |
+| `--install` | Install the system service (systemd on Linux, launchd on macOS). |
+| `--dev-mode` | Allow running as non-root and non-service. Can also be set with environment variable `VIAM_AGENT_DEVMODE`. |

@@ -15,7 +15,7 @@ aliases:
 ---
 
 [`viam-agent`](/manage/reference/viam-agent/) is installed as a `systemd` service named
-`viam-agent` on Linux, a `launchd` daemon named `system/com.viam.agent` on MacOS, and a
+`viam-agent` on Linux, a `launchd` daemon named `system/com.viam.agent` on macOS, and a
 Service named `viam-agent` on Windows.
 
 To view logs from viam-agent see the ["Agent logs" section](/manage/reference/viam-agent/#agent-logs).
@@ -77,7 +77,7 @@ You can only restore this file if you have access to the machine configuration.
 {{< /alert >}}
 
 {{% /tab %}}
-{{% tab name="MacOS" %}}
+{{% tab name="macOS" %}}
 
 - To restart `viam-agent`:
 

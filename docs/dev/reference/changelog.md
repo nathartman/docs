@@ -44,6 +44,16 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="added" title="viam-agent macOS support" date="2026-03-04" %}}
+
+`viam-agent` now supports macOS on arm64 (M-series Macs).
+You can install `viam-agent` on macOS using the same `install.sh` script as Linux.
+On macOS, `viam-agent` installs as a launchd service named `com.viam.agent`.
+
+For more information, see the [viam-agent documentation](/manage/reference/viam-agent/).
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
