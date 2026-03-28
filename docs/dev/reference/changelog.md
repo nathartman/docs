@@ -44,6 +44,12 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="changed" title="GetRobotPartLogs returns all logs when no time range specified" date="2026-03-04" %}}
+
+[`GetRobotPartLogs`](/dev/reference/apis/fleet/#getrobotpartlogs) now returns all available logs when called without start or end time parameters. Previously, an implicit 12-hour limit meant machines offline for longer than 12 hours returned empty results. If you specify start or end times, behavior remains unchanged.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
