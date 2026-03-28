@@ -44,6 +44,12 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="added" title="ML Model Card in Fragment Builder" date="2026-03-04" %}}
+
+You can now configure ML models in the Fragment Builder using the ML Model Card. Select a model from your organization or the registry, choose a version, and deploy it as part of a fragment.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
