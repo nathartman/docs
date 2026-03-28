@@ -327,6 +327,43 @@ Use the following template in your `components` JSON to configure the top-level 
 {{< /tabs >}}
 
 {{% /tab %}}
+{{% tab name="CLI" %}}
+
+Use the Viam CLI to add a trigger to a machine part.
+Run without `--config` for interactive prompts, or provide JSON directly:
+
+{{< tabs >}}
+{{% tab name="Telemetry sync" %}}
+
+```sh {class="command-line" data-prompt="$"}
+viam machines part add-trigger --part=<part-id> \
+  --config '{"name":"data-sync-alert","event":{"type":"part_data_ingested","data_ingested":{"data_types":["binary","tabular"]}},"notifications":[{"type":"email","value":"user@example.com","seconds_between_notifications":60}]}'
+```
+
+{{% /tab %}}
+{{% tab name="Conditional telemetry sync" %}}
+
+```sh {class="command-line" data-prompt="$"}
+viam machines part add-trigger --part=<part-id> \
+  --config '{"name":"cpu-alert","event":{"type":"conditional_data_ingested","conditional":{"data_capture_method":"sensor:cpu-monitor:Readings","condition":{"evals":[{"operator":"gt","value":{"cpu":80}}]}}},"notifications":[{"type":"email","value":"user@example.com","seconds_between_notifications":60}]}'
+```
+
+{{% /tab %}}
+{{< /tabs >}}
+
+You can also save the trigger configuration to a JSON file and pass the file path:
+
+```sh {class="command-line" data-prompt="$"}
+viam machines part add-trigger --part=<part-id> --config ./trigger.json
+```
+
+To delete a trigger:
+
+```sh {class="command-line" data-prompt="$"}
+viam machines part delete-trigger --part=<part-id> --name=<trigger-name>
+```
+
+{{% /tab %}}
 {{< /tabs >}}
 
 For more information about triggers, see [Trigger configuration](/data-ai/reference/triggers-configuration/).
@@ -403,6 +440,22 @@ Use the following template in your `components` JSON to configure the top-level 
 ```
 
 {{% /tab %}}
+{{% tab name="CLI" %}}
+
+Use the Viam CLI to add a log-based trigger:
+
+```sh {class="command-line" data-prompt="$"}
+viam machines part add-trigger --part=<part-id> \
+  --config '{"name":"log-alert","event":{"type":"conditional_logs_ingested","log_levels":["error","warn"]},"notifications":[{"type":"email","value":"user@example.com"}]}'
+```
+
+To delete the trigger:
+
+```sh {class="command-line" data-prompt="$"}
+viam machines part delete-trigger --part=<part-id> --name=log-alert
+```
+
+{{% /tab %}}
 {{< /tabs >}}
 
 For more information about triggers, see [Trigger configuration](/data-ai/reference/triggers-configuration/).
@@ -465,6 +518,22 @@ Use the following template in your `components` JSON to configure the top-level 
 ```
 
 {{% /tab %}}
+{{% tab name="CLI" %}}
+
+Use the Viam CLI to add a part online trigger:
+
+```sh {class="command-line" data-prompt="$"}
+viam machines part add-trigger --part=<part-id> \
+  --config '{"name":"online-alert","event":{"type":"part_online"},"notifications":[{"type":"email","value":"user@example.com","seconds_between_notifications":60}]}'
+```
+
+To delete the trigger:
+
+```sh {class="command-line" data-prompt="$"}
+viam machines part delete-trigger --part=<part-id> --name=online-alert
+```
+
+{{% /tab %}}
 {{< /tabs >}}
 
 For more information about triggers, see [Trigger configuration](/data-ai/reference/triggers-configuration/).
@@ -505,6 +574,22 @@ Use the following template in your `components` JSON to configure the top-level 
      ]
   }
 ]
+```
+
+{{% /tab %}}
+{{% tab name="CLI" %}}
+
+Use the Viam CLI to add a part offline trigger:
+
+```sh {class="command-line" data-prompt="$"}
+viam machines part add-trigger --part=<part-id> \
+  --config '{"name":"offline-alert","event":{"type":"part_offline"},"notifications":[{"type":"email","value":"user@example.com","seconds_between_notifications":60}]}'
+```
+
+To delete the trigger:
+
+```sh {class="command-line" data-prompt="$"}
+viam machines part delete-trigger --part=<part-id> --name=offline-alert
 ```
 
 {{% /tab %}}

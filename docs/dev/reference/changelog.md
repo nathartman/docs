@@ -44,6 +44,22 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="added" title="CLI commands for trigger management" date="2026-03-13" %}}
+
+You can now manage [triggers](/manage/troubleshoot/alert/) on machine parts using the Viam CLI:
+
+- `viam machines part add-trigger`: Add a trigger to a machine part. Run without `--config` for interactive prompts, or provide JSON configuration inline or as a file path.
+- `viam machines part delete-trigger`: Delete a trigger by name.
+
+Example:
+
+```sh {class="command-line" data-prompt="$"}
+viam machines part add-trigger --part=<part-id> \
+  --config '{"name":"cpu-alert","event":{"type":"conditional_data_ingested","conditional":{"data_capture_method":"sensor:cpu-monitor:Readings","condition":{"evals":[{"operator":"gt","value":{"cpu":80}}]}}},"notifications":[{"type":"email","value":"user@example.com","seconds_between_notifications":60}]}'
+```
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
