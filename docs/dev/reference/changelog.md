@@ -44,6 +44,14 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="added" title="Filter parameter for DeleteTabularData" date="2026-03-05" %}}
+
+[`DeleteTabularData`](/dev/reference/apis/data-client/#deletetabulardata) now accepts an optional filter parameter to selectively delete tabular data by location ID, machine ID, part ID, component type, component name, method, or tags. If no filter is provided, data is deleted based on organization ID only.
+
+This is a breaking change for Go. Existing code must add `, nil` as the fourth parameter: `client.DeleteTabularData(ctx, orgID, days, nil)`.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
