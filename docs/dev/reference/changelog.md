@@ -44,6 +44,15 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="added" title="Modified indicators on CONFIGURE tab" date="2026-02-24" %}}
+
+Resources on the **CONFIGURE** tab now show "Modified" indicators when they have unsaved changes.
+In the sidebar, modified resources display an **M** indicator; on config cards, a **Modified** badge appears next to the resource name.
+These indicators apply to components, services, fragments, machine settings, and maintenance.
+They clear when you save your configuration, discard changes, or revert a resource to its saved state.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
