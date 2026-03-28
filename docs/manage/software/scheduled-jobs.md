@@ -133,6 +133,30 @@ Each job targets a specific resource on your machine and calls a designated comp
 ```
 
 {{% /tab %}}
+{{% tab name="CLI" %}}
+
+You can also manage jobs using the [Viam CLI](/dev/tools/cli/):
+
+```sh {class="command-line" data-prompt="$"}
+# Add a job with interactive prompts
+viam machines part add-job
+
+# Add a job with inline JSON
+viam machines part add-job --part=<part-id> \
+  --config '{"name":"hourly-reading","schedule":"1h","resource":"my-sensor","method":"GetReadings"}'
+
+# Update a job's schedule
+viam machines part update-job --part=<part-id> --name=hourly-reading \
+  --config '{"schedule":"30m"}'
+
+# Delete a job
+viam machines part delete-job --part=<part-id> --name=hourly-reading
+```
+
+When using `--config`, provide a JSON object with the job configuration fields (inline or as a path to a JSON file).
+Omit `--config` with `add-job` to use interactive prompts that guide you through selecting a resource from your machine's configuration.
+
+{{% /tab %}}
 {{< /tabs >}}
 
 ## Job configuration

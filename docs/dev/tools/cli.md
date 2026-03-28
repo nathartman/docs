@@ -775,6 +775,9 @@ viam machines part run --machine=<machine id> [--stream] --data <method>
 viam machines part shell --machine=<machine id> --part=<part id>
 viam machines part restart --machine=<machine id> --part=<part id>
 viam machines part cp --part=<part id> <file name> machine:/path/to/file
+viam machines part add-job --part=<part id> [--config <json>]
+viam machines part update-job --part=<part id> --name=<job name> --config <json>
+viam machines part delete-job --part=<part id> --name=<job name>
 ```
 
 Examples:
@@ -839,6 +842,22 @@ viam machines part cp --part=123 -r -p machine:my_dir machine:my_file ~/some/exi
 
 # Download FTDC data from a part to a local directory:
 viam machines part get-ftdc --part=123 ~/some/existing/dir/
+
+# Add a job with interactive prompts:
+viam machines part add-job
+
+# Add a job with inline JSON:
+viam machines part add-job --part=123 \
+  --config '{"name":"hourly-reading","schedule":"1h","resource":"my-sensor","method":"GetReadings"}'
+
+# Add a job using a JSON file:
+viam machines part add-job --part=123 --config ./job.json
+
+# Update a job's schedule:
+viam machines part update-job --part=123 --name=hourly-reading --config '{"schedule":"30m"}'
+
+# Delete a job:
+viam machines part delete-job --part=123 --name=hourly-reading
 ```
 
 #### Command options
@@ -853,7 +872,7 @@ viam machines part get-ftdc --part=123 ~/some/existing/dir/
 | `api-key` | Work with an API key for your machine. | `create` (see [positional arguments: api-key](#positional-arguments-api-key)) |
 | `status` | Retrieve machine status for a specified machine. | - |
 | `logs` | Retrieve logs for a specified machine. | - |
-| `part` | Manage a specified machine part. | `list`, `status`, `run`, `logs`, `shell`, `restart`, `tunnel`, `get-ftdc`, `cp` (see [positional arguments: part](#positional-arguments-part)). To use the `part shell` and `part cp` commands, you must add the [ViamShellDanger fragment](https://app.viam.com/fragment/b511adfa-80ab-4a70-9bd5-fbb14696b17e/json). The `ViamShellDanger` fragment contains the latest version of the shell service, which you must add to your machine before copying files or using the shell. Once downloaded you can use the `viam parse-ftdc` command to inspect the data. |
+| `part` | Manage a specified machine part. | `list`, `status`, `run`, `logs`, `shell`, `restart`, `tunnel`, `get-ftdc`, `cp`, `add-job`, `update-job`, `delete-job` (see [positional arguments: part](#positional-arguments-part)). To use the `part shell` and `part cp` commands, you must add the [ViamShellDanger fragment](https://app.viam.com/fragment/b511adfa-80ab-4a70-9bd5-fbb14696b17e/json). The `ViamShellDanger` fragment contains the latest version of the shell service, which you must add to your machine before copying files or using the shell. Once downloaded you can use the `viam parse-ftdc` command to inspect the data. |
 | `--help` | Return help. | - |
 
 ##### Positional arguments: `api-key`
@@ -878,6 +897,9 @@ viam machines part get-ftdc --part=123 ~/some/existing/dir/
 | `cp` | Copy files to and from a machine part. To use this feature you must add the [`ViamShellDanger` fragment](https://app.viam.com/fragment/b511adfa-80ab-4a70-9bd5-fbb14696b17e/json), which contains the shell service, to your machine. Once added you can use `cp` in a similar way to the Linux `scp` command to copy files to and from machines. |
 | `tunnel` | Tunnel connections to a specified port on a machine part. You must explicitly enumerate ports to which you are allowed to tunnel in your machine's JSON config. See [Tunnel to a machine part](/manage/fleet/system-settings/#configure-network-settings-for-tunneling). |
 | `get-ftdc` |  Download FTDC data from a machine part. To use this feature you must add the [`ViamShellDanger` fragment](https://app.viam.com/fragment/b511adfa-80ab-4a70-9bd5-fbb14696b17e/json). The `ViamShellDanger` fragment contains the latest version of the shell service, which you must add to your machine before copying files or using the shell. <br> Organization and location are required flags if using name (rather than ID) for the part. <br> If [target] is not specified then the FTDC data will be saved to the current working directory. <br> Note: There is no progress meter while copying is in progress.|
+| `add-job` | Add a [scheduled job](/manage/software/scheduled-jobs/) to a machine part. Run without `--config` to use interactive prompts. |
+| `update-job` | Update an existing scheduled job's configuration. Only the fields provided in `--config` are updated; all other fields remain unchanged. The job name cannot be changed. |
+| `delete-job` | Delete an existing scheduled job by name. |
 | `--help` | Return help. |
 
 ##### Named arguments
@@ -903,7 +925,8 @@ viam machines part get-ftdc --part=123 ~/some/existing/dir/
 | `--stream` | If specified, the interval in which to stream the specified data, for example, 100ms or 1s. | `part run` | Optional |
 | `--data` | Command data for the command being request to run (see [data argument](#using-the---stream-and---data-arguments)). | `part run` | **Required** |
 | `--machine-id` | The ID of the machine to create an API key for. | `api-key` | **Required** |
-| `--name` | The optional name of the API key. | `api-key` | Optional |
+| `--name` | Name of the API key or job. | `api-key`, `part update-job`, `part delete-job` | Optional for `api-key`, **Required** for job commands |
+| `--config` | JSON job configuration or path to a JSON file. Omit to use interactive prompts for `add-job`. See [scheduled jobs](/manage/software/scheduled-jobs/) for available fields. | `part add-job`, `part update-job` | Optional for `add-job`, **Required** for `update-job` |
 | `--recursive`, `-r` | Recursively copy files. Default: `false`. | `part cp` | Optional |
 | `--preserve`, `-p` | Preserve modification times and file mode bits from the source files. Default: `false`. | `part cp` | Optional |
 | `--destination-port` | The port on a machine part to tunnel to. | `part tunnel` | **Required** |

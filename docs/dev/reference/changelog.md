@@ -44,6 +44,28 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="added" title="CLI commands for scheduled jobs" date="2026-03-14" %}}
+
+You can now manage [scheduled jobs](/manage/software/scheduled-jobs/) using the CLI:
+
+- `viam machines part add-job` - Add a job with interactive prompts or inline JSON
+- `viam machines part update-job` - Update an existing job's configuration
+- `viam machines part delete-job` - Delete a job by name
+
+Use `--config` to provide job configuration as inline JSON or a path to a JSON file.
+Omit `--config` with `add-job` to use interactive prompts.
+
+See [CLI documentation](/dev/tools/cli/#machines-alias-robots-and-machine) for details.
+
+{{% /changelog %}}
+
+{{% changelog color="changed" title="GetImages replaced GetImage" date="2025-10-31" %}}
+
+[`GetImage`](/dev/reference/apis/components/camera/#getimage) is deprecated.
+Use [`GetImages`](/dev/reference/apis/components/camera/#getimages) instead.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
