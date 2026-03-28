@@ -44,6 +44,13 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="changed" title="Custom URL agent version downloads fixed" date="2026-03-04" %}}
+
+Custom URL versions of `viam-agent` and `viam-server` now download with correct execute permissions.
+Previously, binaries downloaded from custom URLs would fail to start because they lacked execute permissions.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
