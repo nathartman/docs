@@ -44,6 +44,12 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="changed" title="Dataset list sorted by creation time" date="2026-03-03" %}}
+
+The dataset list in the **add image to dataset** modal on the **DATA** tab now shows newest datasets first.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
