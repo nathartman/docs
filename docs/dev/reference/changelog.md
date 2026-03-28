@@ -44,6 +44,12 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="changed" title="Improved configuration block search" date="2026-03-06" %}}
+
+Search in the **Add configuration block** modal on the **CONFIGURE** tab now returns more relevant results, with better matching for multi-word queries, typo tolerance, and substring matching when searching for registry modules, [fragments](/manage/fleet/reuse-configuration/), and built-in resources.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
