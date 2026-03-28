@@ -44,6 +44,12 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="changed" title="Dataset label filter highlighting" date="2026-03-02" %}}
+
+On the **DATASETS** page, the sidebar now highlights your currently selected filter (classification, tag, or bounding box label). When you expand an image while filtering, the breadcrumb shows the active filter (such as "Image tag: dog" or "Bounding box label: car") instead of "All images".
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
