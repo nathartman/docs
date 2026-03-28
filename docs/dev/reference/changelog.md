@@ -44,6 +44,12 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="changed" title="ML model vision service confidence slider default" date="2026-02-24" %}}
+
+The **Minimum confidence** slider for the ML model vision service on the **CONFIGURE** tab now defaults to 50% instead of 0%.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
