@@ -44,6 +44,12 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="improved" title="Motion planning for rotational joints" date="2026-03-04" %}}
+
+Motion planning for rotational joints now uses the effective rotational range (2π radians) when calculating movement costs, producing more efficient paths for joints with large rotation ranges.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
