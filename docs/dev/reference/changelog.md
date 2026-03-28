@@ -44,6 +44,20 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="added" title="Camera extrinsic parameters" date="2026-03-02" %}}
+
+[`GetProperties`](/dev/reference/apis/components/camera/#getproperties) now returns extrinsic parameters, which define the camera's position and orientation relative to a reference frame.
+Camera implementations that don't support extrinsic parameters return an empty value.
+
+{{% /changelog %}}
+
+{{% changelog color="fixed" title="Camera extrinsic parameter transformation" date="2026-03-04" %}}
+
+Fixed an issue where the camera `Properties.PointToPixel` method returned incorrect pixel coordinates when using extrinsic parameters.
+The method now correctly transforms world coordinates to camera coordinates.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.

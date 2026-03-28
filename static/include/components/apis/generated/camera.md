@@ -212,7 +212,7 @@ For more information, see the [Flutter SDK Docs](https://flutter.viam.dev/viam_s
 
 ### GetProperties
 
-Get the camera intrinsic parameters and camera distortion, as well as whether the camera supports returning point clouds.
+Get the camera intrinsic parameters, distortion parameters, and extrinsic parameters (the camera's position and orientation relative to a reference frame), as well as whether the camera supports returning point clouds.
 
 {{< tabs >}}
 {{% tab name="Python" %}}
