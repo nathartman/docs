@@ -97,6 +97,8 @@ For more information, see the [Flutter SDK Docs](https://flutter.viam.dev/viam_s
 
 Closes the gripper until it grabs something or closes completely, and returns whether it grabbed something or not.
 
+To close the gripper jaws, use `Grab()`—not `Close()`. `Close()` shuts down the resource, not the gripper.
+
 {{< tabs >}}
 {{% tab name="Python" %}}
 
