@@ -44,6 +44,12 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="changed" title="Train model button disabled during validation" date="2026-03-10" %}}
+
+The **Train model** button on the **DATASETS** page is now disabled while dataset validation is running or if validation fails. Resolve any validation errors shown on the training screen before training.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
