@@ -44,6 +44,12 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="changed" title="Nested metadata round-trip fix" date="2026-02-26" %}}
+
+Custom metadata with nested objects and arrays now round-trips correctly through the API. Previously, storing nested metadata with [`UpdateRobotMetadata`](/dev/reference/apis/fleet/#updaterobotmetadata) worked, but [`GetRobotMetadata`](/dev/reference/apis/fleet/#getrobotmetadata) failed to read it back. This fix applies to machine part, machine, location, and organization metadata.
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
