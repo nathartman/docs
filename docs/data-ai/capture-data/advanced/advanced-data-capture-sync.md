@@ -32,6 +32,82 @@ Higher values may improve throughput on more powerful hardware, but raising it t
 **Wait time before syncing arbitrary files:** If you choose to sync arbitrary files (beyond those captured by the data management service), the `file_last_modified_millis` configuration attribute specifies how long a file must remain unmodified before the data manager considers it for syncing.
 The default is 10 seconds.
 
+## Dynamic capture control
+
+By default, data capture runs at the frequencies you set in your machine config.
+You can use a capture control sensor to adjust capture behavior at runtime without reconfiguring your machine.
+This lets you:
+
+- Adjust capture frequency based on sensor readings or external conditions
+- Enable or disable capture for specific resources
+- Override tags for captured data based on context
+- React to events faster than a full reconfigure allows
+
+To control capture dynamically, configure a sensor that returns capture control instructions.
+The data manager polls this sensor at 10 Hz (every 100ms) and applies changes within 100ms.
+If the sensor returns no controls or becomes unavailable, capture reverts to your machine config within 100ms.
+
+### Configure the data manager to control capture based on sensor
+
+Add a `capture_control_sensor` field to your data manager configuration with the name of your sensor and the key in the sensor's readings that contains the capture controls:
+
+```json {class="line-numbers linkable-line-numbers"}
+{
+  "services": [
+    {
+      "name": "data_manager-1",
+      "api": "rdk:service:data_manager",
+      "model": "rdk:builtin:builtin",
+      "attributes": {
+        "capture_control_sensor": {
+          "name": "my-control-sensor",
+          "key": "capture_controls"
+        },
+        "sync_interval_mins": 0.1,
+        "capture_dir": "",
+        "tags": []
+      },
+      "depends_on": ["my-control-sensor"]
+    }
+  ]
+}
+```
+
+The sensor must return an array of capture control objects at the specified key.
+Each control object can include:
+
+- `resource_name`: The short name of the resource (for example, `"camera-1"`)
+- `method`: The capture method name (for example, `"GetImages"`)
+- `capture_frequency_hz`: Sets the capture frequency for this resource/method. A value of `0` disables capture. Any positive value enables capture at that frequency, even if the base config has capture disabled.
+- `tags`: Overrides the tags for captured data from this resource/method
+
+Example sensor readings:
+
+```json
+{
+  "capture_controls": [
+    {
+      "resource_name": "camera-1",
+      "method": "GetImages",
+      "capture_frequency_hz": 0.5,
+      "tags": ["event-detected"]
+    },
+    {
+      "resource_name": "sensor-1",
+      "method": "Readings",
+      "capture_frequency_hz": 0
+    }
+  ]
+}
+```
+
+In this example, the control sensor:
+- Sets `camera-1` to capture images at 0.5 Hz with the tag `"event-detected"`
+- Disables capture for `sensor-1` by setting its frequency to `0`
+
+Controls only affect resources that have data capture configured in your machine config.
+You cannot use capture controls to start capturing from a resource that doesn't have any capture methods configured.
+
 ## Advanced data management service configuration
 
 To configure the data manager in JSON, see the following example configurations:
@@ -101,6 +177,7 @@ The following attributes are available for the data management service:
 | `additional_sync_paths` | string array | Optional | Paths to any other directories on your machine from which you want to sync data to the cloud. Once data is synced from a directory, it is automatically deleted from your machine. We recommend using absolute paths. For relative paths, see [How sync works](/data-ai/capture-data/advanced/how-sync-works/#cant-find-the-directory-data-is-stored-in-click-here). |  |
 | `sync_interval_mins` | float | Optional | Time interval in minutes between syncing to the cloud. Viam does not impose a minimum or maximum on the frequency of data syncing. However, in practice, your hardware or network speed may impose limits. <br> Default: `0.1`, meaning once every 6 seconds. |  <p class="center-text"><i class="fas fa-check" title="yes"></i></p> |
 | `selective_syncer_name` | string | Optional | The name for the sensor that should determine selective sync. Also add this sensor to the `depends_on` field. For more information, see [Configure the data manager to sync based on sensor](/data-ai/capture-data/conditional-sync/#configure-the-data-manager-to-sync-based-on-sensor). |  |
+| `capture_control_sensor` | object | Optional | A sensor that provides dynamic capture controls. Specify `name` (the sensor's resource name) and `key` (the key in the sensor's readings containing the controls array). Also add this sensor to the `depends_on` field. For more information, see [Dynamic capture control](/data-ai/capture-data/advanced/advanced-data-capture-sync/#dynamic-capture-control). |  |
 | `delete_data_on_part_deletion` | bool | Optional | Whether deleting this {{< glossary_tooltip term_id="machine" text="machine" >}} or {{< glossary_tooltip term_id="part" text="machine part" >}} should result in deleting all the data captured by that machine part. <br> Default: `false` | <p class="center-text"><i class="fas fa-check" title="yes"></i></p> |
 | `delete_every_nth_when_disk_full` | int | Optional | How many files to delete when local storage meets the [fullness criteria](/data-ai/capture-data/advanced/how-sync-works/#storage). The data management service will delete every Nth file that has been captured upon reaching this threshold. Use JSON mode to configure this attribute. <br> Default: `5`, meaning that every fifth captured file will be deleted. |   |
 | `maximum_num_sync_threads` | int | Optional | Max number of CPU threads to use for syncing data to the Viam Cloud. <br> Default: [runtime.NumCPU](https://pkg.go.dev/runtime#NumCPU)/2 so half the number of logical CPUs available to viam-server |   |

@@ -44,6 +44,17 @@ date: "2024-09-18"
 # updated: ""  # When the content was last entirely checked
 ---
 
+{{% changelog color="added" title="Dynamic capture control via sensor" date="2026-03-09" %}}
+
+You can now dynamically control data capture at runtime using a capture control sensor.
+Configure a sensor that returns capture control instructions, and the data manager will poll it at 10 Hz (every 100ms) and apply changes within 100ms.
+This lets you adjust capture frequency, enable or disable capture for specific resources, and override tags based on conditions—all without reconfiguring your machine.
+If no controls are emitted or the sensor becomes unavailable, capture reverts to your machine config within 100ms.
+
+For more information, see [Dynamic capture control](/data-ai/capture-data/advanced/advanced-data-capture-sync/#dynamic-capture-control).
+
+{{% /changelog %}}
+
 {{% changelog color="added" title="Fragment prefix" date="2025-10-29" %}}
 
 You can now set prefixes on fragments to avoid name collisions.
